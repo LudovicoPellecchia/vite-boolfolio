@@ -17,7 +17,9 @@ export default {
   methods: {
 
   },
-  
+  mounted() {
+        getDataFromApi()
+    }
   
 
 }
@@ -25,9 +27,10 @@ export default {
 </script>
 
 <template>
-  <h1>Benvenuto nel mio portfolio!</h1>
+  <h1 class="text-center mb-5">Benvenuto nel mio portfolio!</h1>
   <ProjectList></ProjectList>
 </template>
 
 <style lang="scss">
+
 </style>

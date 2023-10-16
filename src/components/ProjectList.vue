@@ -16,9 +16,7 @@ export default {
     methods: {
     },
 
-    mounted() {
-        getDataFromApi()
-    }
+
 
 
 
@@ -29,7 +27,7 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row gy-5">
+        <div class="row row-cols-3 gy-5">
             <div class="col" v-for="singleProject in store.projects">
                 <ProjectCard :project="singleProject"></ProjectCard>
             </div>
