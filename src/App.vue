@@ -1,10 +1,13 @@
 <script>
 import ProjectList from './components/ProjectList.vue';
+import AppHeader from './components/AppHeader.vue';
 import { store, getDataFromApi} from './store';
+
 
 export default {
   components:{
-    ProjectList
+    ProjectList,
+    AppHeader
   },
 
   data(){
@@ -27,8 +30,8 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-center mb-5">Benvenuto nel mio portfolio!</h1>
-  <ProjectList></ProjectList>
+<AppHeader></AppHeader>
+<router-view></router-view>
 </template>
 
 <style lang="scss">
