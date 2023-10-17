@@ -12,12 +12,16 @@ export default {
                     nameRoute:'projects',
                     text: 'Progetti',
                 },
+            ],
 
-            ]
+            activeLink: null
         };
     },
 
     methods: {
+        activateLink(nameRoute){
+            return this.activeLink = nameRoute
+        }
 
     },
 
@@ -29,7 +33,7 @@ export default {
     <nav class="navbar navbar-expand-lg">
 
         <div class="container-fluid">
-            <router-link :to="{ name: 'home' }" class="navbar-brand me-4"><img class="logo" src="../assets/logo/logo-transparent-svg.svg" ></router-link>
+            
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,15 +41,21 @@ export default {
             </button>
 
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
 
-                    <li class="nav-item" v-for="navLink in navLinks">
-                        <router-link :to="{name:navLink.nameRoute}" class="nav-link" aria-current="page" > 
+                    <li v-for="navLink in navLinks" class="me-3" @click="activateLink(navLink.nameRoute)">
+                        <router-link :to="{name:navLink.nameRoute}" 
+                        :class="{'activated' : activeLink === navLink   .nameRoute}"
+                        > 
                             {{navLink.text}}
                         </router-link>
                     </li>
 
                 </ul>
+                <div class="me-auto logo-wrapper">
+                    <router-link :to="{ name: 'home' }" class="navbar-brand "><img class="logo" src="../assets/logo/logo-transparent-svg.svg" ></router-link>
+                </div>
+
                 <span class="navbar-text">
                     <a href="http://127.0.0.1:8000/login">Accedi</a>
                 </span>
@@ -57,15 +67,28 @@ export default {
 <style lang="scss" scoped>
 nav {
     margin-bottom: 30px;
-    padding-left: 20px;
     background-color: rgba(255, 198, 128, 0.589);
 
+    .logo-wrapper{
+        text-align: center;
+        width: 100%;
+        }
+
     .logo{
-        width: 150px;
+        width: 240px;
     }
 
-    .nav-item {
-        padding-right: 10px;
+    ul li a{
+        --bs-link-color-rgb: #343432;
+        color: #646363;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .activated{
+        color: #343432;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #343432;
     }
 }
 </style>
