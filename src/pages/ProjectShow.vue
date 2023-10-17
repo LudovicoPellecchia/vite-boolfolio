@@ -34,7 +34,8 @@ export default {
 </script>
 
 <template>
-    <div class="card my-card">
+    <div class="container">
+        <div class="card my-card">
         <img :src="getImageUrl(show_project)" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{ show_project.titolo }}</h5>
@@ -48,7 +49,13 @@ export default {
     <div class=" text-center mt-5">
         <router-link :to="{name:'projects'}"><button class="btn btn-outline-secondary"><span>&#8249;</span> Torna Indietro</button></router-link>
     </div>
+    </div>
+
     
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img{
+    max-height: 400px;
+}
+</style>
