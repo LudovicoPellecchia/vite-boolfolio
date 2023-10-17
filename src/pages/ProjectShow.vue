@@ -13,7 +13,7 @@ export default {
     },
 
     methods: {
-        getProjectFromApi() {
+        getSingleProjectFromApi() {
             axios
                 .get("http://localhost:8000/api/projects/" + this.$route.params.slug)
                 .then((response) => {
@@ -26,7 +26,7 @@ export default {
 
     },
     mounted() {
-        this.getProjectFromApi()
+        this.getSingleProjectFromApi()
     }
 
 }
@@ -43,6 +43,10 @@ export default {
             <p class="card-text technologies-style" v-for="technology in show_project.technologies"><span>{{ technology.nome
             }}</span></p>
         </div>
+    </div>
+
+    <div class=" text-center mt-5">
+        <router-link :to="{name:'projects'}"><button class="btn btn-outline-secondary"><span>&#8249;</span> Torna Indietro</button></router-link>
     </div>
     
 </template>
