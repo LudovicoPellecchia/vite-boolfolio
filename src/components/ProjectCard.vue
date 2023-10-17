@@ -1,5 +1,5 @@
 <script>
-import { store, getDataFromApi } from '../store';
+import { store } from '../store';
 
 export default {
     props: {
@@ -34,6 +34,7 @@ export default {
             <p class="card-text">{{ project.descrizione }}</p>
             <p class="card-text">{{ project.type.name }}</p>
             <p class="card-text technologies-style" v-for="technology in project.technologies"><span>{{ technology.nome }}</span></p>
+            <router-link :to="{name:'project.show', params: {slug: project.slug}}"><button class="btn btn-primary">Vedi di più</button></router-link>
         </div>
     </div>
 </template>

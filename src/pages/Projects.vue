@@ -1,4 +1,6 @@
 <script>
+import { store, getDataFromApi } from '../store';
+
 import ProjectList from '../components/ProjectList.vue';
 
 export default {

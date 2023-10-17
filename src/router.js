@@ -17,8 +17,8 @@ const routes = [
         component: Projects
     },
     {
-        path:"/projects/:slug",
-        name:"projects.show",
+        path:"/project/:slug",
+        name:"project.show",
         component: ProjectShow
     }
 ]
